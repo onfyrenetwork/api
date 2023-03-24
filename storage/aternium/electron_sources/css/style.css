@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: 'Text Sans';
-    src: url(src/Text\ Sans.ttf) format("truetype");
+    src: url("https://onfyrenetwork.github.io/api/storage/aternium/electron_sources/src/Text Sans.ttf") format("truetype");
 }
 
 :root {
@@ -16,8 +16,8 @@
     --heading-color: #FFFFFF;
     --text-color: #bbbbbb;
     --gradient: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    --cursor-main: url("src/pointer.cur");
-    --cursor-hover: url("src/link.cur");
+    --cursor-main: url("https://onfyrenetwork.github.io/api/storage/aternium/electron_sources/src/pointer.cur");
+    --cursor-hover: url("https://onfyrenetwork.github.io/api/storage/aternium/electron_sources/src/link.cur");
     --blur: blur(5px);
 }
 
