@@ -19,6 +19,7 @@
     --gradient: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     --cursor-main: url("https://onfyrenetwork.github.io/api/storage/aternium/electron_sources/src/pointer.cur");
     --cursor-hover: url("https://onfyrenetwork.github.io/api/storage/aternium/electron_sources/src/link.cur");
+    --cursor-unavailable: url("https://onfyrenetwork.github.io/api/storage/aternium/electron_sources/src/unavailable.cur");
     --blur: blur(5px);
 }
 
@@ -495,7 +496,7 @@ nav {
 }
 
 label[for="aterniumModTile"]:hover {
-    cursor: not-allowed;
+    cursor: var(--cursor-unavailable), not-allowed;
 }
 
 #accountsMenu {
