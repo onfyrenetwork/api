@@ -1,4 +1,5 @@
 * {
+    color: white;
     padding: 0;
     margin: 0;
     font-family: 'Text Sans';
@@ -51,29 +52,27 @@ p {
     display: none;
 }
 
-@keyframes select {
-    0% {
-        background-color: var(--primary-color);
-    }
-
-    50% {
-        background-color: var(--secondary-color);
-    }
-
-    100% {
-        background-color: var(--primary-color);
-    }
-}
-
 @keyframes flyIn {
     0% {
         transform: translateY(25px);
-        visibility: 0;
+        opacity: 0;
     }
 
     100% {
         transform: translateY(0px);
-        visibility: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes flyInTop {
+    0% {
+        transform: translateY(-25px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
     }
 }
 
@@ -100,6 +99,8 @@ nav {
     gap: 10px;
     align-items: center;
     -webkit-app-region: drag;
+    animation-name: flyInTop;
+    animation-duration: 1s;
 }
 
 .nav-img {
@@ -122,6 +123,11 @@ nav {
     align-items: center;
     gap: 25px;
     margin-right: 145px;
+}
+
+.menu-selector {
+    animation-name: flyInTop;
+    animation-duration: 1s;
 }
 
 .ms-label {
@@ -170,7 +176,7 @@ nav {
     background-clip: text;
     color: transparent;
     animation-name: flyIn;
-    animation-duration: 3;
+    animation-duration: 1s;
 }
 
 .loading-bar {
@@ -178,6 +184,8 @@ nav {
     background-color: #161616;
     width: 800px;
     height: 5px;
+    animation-name: flyIn;
+    animation-duration: 1s;
 }
 
 #loader {
@@ -205,6 +213,11 @@ nav {
     flex-direction: column;
     gap: 15px;
     width: 30vw;
+}
+
+.sidebar * {
+    animation-name: flyIn;
+    animation-duration: 0.5s;
 }
 
 .wrapper {
@@ -250,6 +263,11 @@ nav {
     overflow-y: scroll;
 }
 
+#homeMenu * {
+    animation-name: flyIn;
+    animation-duration: 0.5s;
+}
+
 .content-wrapper {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     border-radius: 16px;
@@ -281,6 +299,11 @@ nav {
     justify-content: start;
     align-items: stretch;
     overflow-y: scroll;
+}
+
+#settingsMenu * {
+    animation-name: flyIn;
+    animation-duration: 0.5s;
 }
 
 .setting-category {
@@ -409,39 +432,95 @@ nav {
 
 #modMenu {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 25px;
     grid-row-gap: 25px; 
     padding: 25px;
     width: 70vw;
+    overflow-y: scroll;
+}
+
+#modMenu * {
+    animation-name: flyIn;
+    animation-duration: 0.5s;
+}
+
+.mod-checkbox {
+    display: none;
+}
+
+.mod-checkbox:checked+.mod-tile {
+    filter: none;
+    background-color: red;
+    background-size: 125%;
+    transition: 0.3s ease-in-out;
+}
+
+.mod-checkbox:checked+.mod-name {
+    display: none;
+}
+
+.mod {
+    text-align: center;
+    background-color: #222222;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: start;
+    border-radius: 16px;
 }
 
 .mod-tile {
+    filter: grayscale(100%);
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: end;
+    display: grid;
+    place-items: center;
     border-radius: 16px;
     background-color: #0A0A0A;
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 100%;
     aspect-ratio: 1;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in-out;
 }
 
-.mod-tile-bar {
+.mod-tile:hover {
+    cursor: var(--cursor-hover), pointer;
+}
+
+.mod-name {
     color: white;
+}
+
+label[for="aterniumModTile"]:hover {
+    cursor: not-allowed;
+}
+
+#accountsMenu {
+    padding: 25px;
+    width: 70vw;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: start;
+    align-items: stretch;
+    overflow-y: scroll;
+}
+
+#accountsMenu * {
+    animation-name: flyIn;
+    animation-duration: 0.5s;
 }
 
 footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 10px;
+    padding: 0px 25px;
     background-color: #0A0A0A;
-    width: calc(100vw - 20px);
+    width: calc(100vw - 50px);
     height: 60px;
 }
 
