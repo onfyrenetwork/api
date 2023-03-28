@@ -78,9 +78,8 @@ p {
 }
 
 ::selection {
-    color: white;
-    animation-name: select;
-    animation-duration: 5s;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
 nav {
@@ -163,19 +162,13 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 50px;
 }
 
-.load-title {
-    letter-spacing: 15px;
-    font-size: 48px;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+.loading-img {
+    height: 200px;
+    aspect-ratio: 1;
     animation-name: flyIn;
     animation-duration: 1s;
 }
@@ -194,7 +187,7 @@ nav {
     height: 5px;
     width: 0px;
     background: var(--gradient);
-    transition: 1.5s ease-in-out;
+    transition: 2s ease-in-out;
 }
 
 #main {
@@ -451,14 +444,13 @@ nav {
 }
 
 .mod-checkbox:checked+.mod-tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     filter: none;
-    background-color: red;
+    background-color: var(--secondary-color);
     background-size: 125%;
     transition: 0.3s ease-in-out;
-}
-
-.mod-checkbox:checked+.mod-name {
-    display: none;
 }
 
 .mod {
@@ -470,6 +462,7 @@ nav {
     align-items: stretch;
     justify-content: start;
     border-radius: 16px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .mod-tile {
@@ -478,17 +471,24 @@ nav {
     display: grid;
     place-items: center;
     border-radius: 16px;
-    background-color: #0A0A0A;
     background-repeat: repeat;
     background-position: center;
     background-size: 100%;
     aspect-ratio: 1;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     transition: 0.3s ease-in-out;
+    content-visibility: hidden;
 }
 
 .mod-tile:hover {
     cursor: var(--cursor-hover), pointer;
+    content-visibility: visible;
+}
+
+.mod-tile:hover+.mod-tile * {
+    color: black;
+    backdrop-filter: blur(4px);
+    animation-name: flyIn;
+    animation-duration: 0.5s;
 }
 
 .mod-name {
@@ -523,6 +523,11 @@ footer {
     background-color: #0A0A0A;
     width: calc(100vw - 50px);
     height: 60px;
+}
+
+footer * {
+    animation-name: flyIn;
+    animation-duration: 1s;
 }
 
 #launchButton {
